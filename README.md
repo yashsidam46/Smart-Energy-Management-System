@@ -1,19 +1,19 @@
-# ⚡ Smart Energy Management System (SEMS)
+#  Smart Energy Management System (SEMS)
 
-## 📌 Overview
+##  Overview
 
 The **Smart Energy Management System (SEMS)** is a data-driven web application that monitors, analyzes, and predicts energy consumption. It helps users understand usage patterns, detect anomalies, and optimize energy efficiency.
 
 This project integrates:
 
-* 📊 Data Visualization (Streamlit)
-* 🗄️ Database Management (SQLAlchemy)
-* 🤖 Machine Learning (Isolation Forest, LSTM)
-* 📈 Forecasting (LSTM & Prophet)
+*  Data Visualization (Streamlit)
+*  Database Management (SQLAlchemy)
+*  Machine Learning (Isolation Forest, LSTM)
+*  Forecasting (LSTM & Prophet)
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### 🔹 1. Dashboard
 
@@ -36,8 +36,8 @@ This project integrates:
 
 ### 🔹 4. Energy Forecasting
 
-* 🔮 LSTM-based time series prediction
-* 📊 Prophet-based forecasting
+*  LSTM-based time series prediction
+*  Prophet-based forecasting
 * Next 24 hours and 7-day predictions
 
 ### 🔹 5. Smart Recommendations
@@ -47,7 +47,7 @@ This project integrates:
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 SEMS/
@@ -69,7 +69,7 @@ SEMS/
 
 
 
-## ▶️ Run the Application
+##  Run the Application
 
 ```
 streamlit run app.py
@@ -83,7 +83,7 @@ http://localhost:8501
 
 ---
 
-## 🧠 Technologies Used
+##  Technologies Used
 
 * **Frontend:** Streamlit
 * **Backend:** Python
@@ -98,7 +98,7 @@ http://localhost:8501
 
 ---
 
-## 📊 Machine Learning Models
+##  Machine Learning Models
 
 ### 🔹 Isolation Forest
 
@@ -117,7 +117,7 @@ http://localhost:8501
 
 ---
 
-## 💡 Future Improvements
+##  Future Improvements
 
 * IoT sensor integration
 * Real-time data streaming
@@ -127,14 +127,13 @@ http://localhost:8501
 
 ---
 
-## 👨‍💻 Author
 
 **Yash Sidam**
 Artificial Intelligence & Data Science Student
 
 ---
 
-## 📌 Conclusion
+##  Conclusion
 
 SEMS demonstrates how **AI + Data Analytics** can be used to optimize energy usage, reduce costs, and build smarter systems.
 
