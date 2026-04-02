@@ -4,18 +4,13 @@ import plotly.express as px
 from datetime import datetime
 from pathlib import Path
 
-# ===============================
-# CONFIG
-# ===============================
 
 APP_NAME = "Smart Energy Management System ⚡"
 TARIFF_RATE = 8  # ₹ per kWh
 
 st.set_page_config(layout="wide", page_title=APP_NAME)
 
-# ===============================
-# LOAD DATA
-# ===============================
+
 
 @st.cache_data
 def load_data():
@@ -43,9 +38,7 @@ df = load_data()
 if df.empty:
     st.stop()
 
-# ===============================
-# SIDEBAR
-# ===============================
+
 
 st.sidebar.title("Filters")
 
@@ -69,9 +62,7 @@ df_f = df[
     (df["timestamp"] <= pd.Timestamp(end_date) + pd.Timedelta(days=1))
 ]
 
-# ===============================
-# METRICS
-# ===============================
+
 
 today = datetime.now().date()
 today_consumption = df_f[df_f["date"] == today]["power_kwh"].sum()
@@ -85,15 +76,11 @@ col1.metric("Today's Consumption", f"{today_consumption:.2f} kWh")
 col2.metric("Total Energy", f"{total_energy:.2f} kWh")
 col3.metric("Total Cost", f"₹{total_cost:.2f}")
 
-# ===============================
-# TABS
-# ===============================
+
 
 tabs = st.tabs(["Overview", "Insights", "Appliances", "Rooms"])
 
-# ===============================
-# OVERVIEW
-# ===============================
+
 
 with tabs[0]:
     st.subheader("Energy Usage Over Time")
@@ -106,9 +93,6 @@ with tabs[0]:
     daily = df_f.set_index("timestamp").resample("D")["power_kwh"].sum()
     st.line_chart(daily)
 
-# ===============================
-# INSIGHTS
-# ===============================
 
 with tabs[1]:
     st.subheader("Insights")
@@ -131,9 +115,6 @@ with tabs[1]:
     else:
         st.warning("Not enough data for correlation.")
 
-# ===============================
-# APPLIANCES
-# ===============================
 
 with tabs[2]:
     st.subheader("Appliance Consumption")
@@ -149,9 +130,7 @@ with tabs[2]:
     else:
         st.warning("Column 'appliance_id' not found.")
 
-# ===============================
-# ROOMS
-# ===============================
+
 
 with tabs[3]:
     st.subheader("Room Consumption")
@@ -167,9 +146,7 @@ with tabs[3]:
     else:
         st.warning("Column 'room_id' not found.")
 
-# ===============================
-# FOOTER
-# ===============================
+
 
 st.markdown("---")
-st.caption("SEMS Project | Built with Streamlit ⚡")
+st.caption("SEMS Project | Built By Yash ⚡")
