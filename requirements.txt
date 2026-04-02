@@ -1,0 +1,13 @@
+# requirements.txt
+
+streamlit
+pandas
+numpy
+plotly
+scikit-learn
+tensorflow
+python-dotenv
+sqlalchemy
+psycopg2-binary
+PyMySQL
+prophet
