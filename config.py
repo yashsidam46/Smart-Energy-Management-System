@@ -1,15 +1,13 @@
 # sems/config.py
 
-"""Configuration loader from .env."""
 import os
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
 
 class Settings:
-    DB_DRIVER = os.getenv("DB_DRIVER", "sqlite")  # "postgresql", "mysql", "sqlite"
+    DB_DRIVER = os.getenv("DB_DRIVER", "sqlite")
     DB_HOST = os.getenv("DB_HOST", "localhost")
     DB_PORT = int(os.getenv("DB_PORT", 5432))
     DB_NAME = os.getenv("DB_NAME", "sems")
@@ -26,4 +24,10 @@ class Settings:
 
     PROPHET_RESOLUTION_H = int(os.getenv("PROPHET_RESOLUTION_H", 1))
 
-    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+    # Model paths
+    LSTM_MODEL_PATH = os.getenv("LSTM_MODEL_PATH", "models/lstm_model.h5")
+    LSTM_SCALER_PATH = os.getenv("LSTM_SCALER_PATH", "models/lstm_scaler.pkl")
+
+    LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+    DEBUG = os.getenv("DEBUG", "False") == "True"
+    APP_NAME = os.getenv("APP_NAME", "SEMS Dashboard")

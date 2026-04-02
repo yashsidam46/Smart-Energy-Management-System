@@ -92,28 +92,22 @@ def get_top_anomalies(
     n: int = 10,
     sort_by: str = "anomaly_score",
 ) -> pd.DataFrame:
-    """
-    Get top N most anomalous rows.
 
-    Args:
-        df: DataFrame with at least 'is_anomaly' and 'anomaly_score'.
-        n: number of top anomalies to return.
-        sort_by: column to sort by (default 'anomaly_score', lower is more anomalous).
-
-    Returns:
-        Top N anomalous rows.
-    """
     if "is_anomaly" not in df.columns:
         logger.warning("No 'is_anomaly' column; returning empty DataFrame.")
         return pd.DataFrame()
 
     anomalies = df[df["is_anomaly"] == -1].copy()
+
     if len(anomalies) == 0:
         logger.info("No anomalies found.")
         return anomalies
 
-    ascending = True if sort_by == "anomaly_score" else True
-    top = anomalies.nlargest(n, sort_by) if "decrease" in "decrease" else anomalies.nsmallest(n, sort_by)
+    if sort_by == "anomaly_score":
+        top = anomalies.nsmallest(n, sort_by)
+    else:
+        top = anomalies.nlargest(n, sort_by)
+
     return top
 
 
