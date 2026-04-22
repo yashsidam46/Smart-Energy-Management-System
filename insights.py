@@ -9,9 +9,6 @@ from typing import Dict
 from config import Settings
 
 
-# ===============================
-# Peak Hour Detection
-# ===============================
 
 def get_peak_hour(df: pd.DataFrame) -> int:
     if df.empty:
@@ -29,9 +26,7 @@ def get_peak_hour(df: pd.DataFrame) -> int:
     return int(by_hour.idxmax())
 
 
-# ===============================
-# Hourly Consumption
-# ===============================
+
 
 def get_hourly_consumption(df: pd.DataFrame) -> pd.Series:
     if df.empty:
@@ -44,9 +39,6 @@ def get_hourly_consumption(df: pd.DataFrame) -> pd.Series:
     return df.groupby("hour")["power_kwh"].sum()
 
 
-# ===============================
-# Correlation Matrix
-# ===============================
 
 def get_correlation(df: pd.DataFrame) -> pd.DataFrame:
     if df.empty:
@@ -61,9 +53,7 @@ def get_correlation(df: pd.DataFrame) -> pd.DataFrame:
     return df[cols].corr()
 
 
-# ===============================
-# Appliance Consumption
-# ===============================
+
 
 def get_appliance_consumption(df: pd.DataFrame) -> pd.Series:
     if df.empty or "appliance_id" not in df.columns:
@@ -72,9 +62,7 @@ def get_appliance_consumption(df: pd.DataFrame) -> pd.Series:
     return df.groupby("appliance_id")["power_kwh"].sum()
 
 
-# ===============================
-# Room Consumption
-# ===============================
+
 
 def get_room_consumption(df: pd.DataFrame) -> pd.Series:
     if df.empty or "room_id" not in df.columns:
@@ -83,9 +71,7 @@ def get_room_consumption(df: pd.DataFrame) -> pd.Series:
     return df.groupby("room_id")["power_kwh"].sum()
 
 
-# ===============================
-# Cost Calculation
-# ===============================
+
 
 def calculate_cost(df: pd.DataFrame) -> float:
     if df.empty:
@@ -95,9 +81,7 @@ def calculate_cost(df: pd.DataFrame) -> float:
     return float(total_kwh * Settings.TARIFF_RATE)
 
 
-# ===============================
-# Generate Smart Insights
-# ===============================
+
 
 def generate_insights(df: pd.DataFrame) -> Dict:
     if df.empty:
